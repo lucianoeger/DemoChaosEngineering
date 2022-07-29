@@ -1,0 +1,41 @@
+﻿@page "/EditCar/{Id:int}"
+@inherits EditCarComponentBase
+
+<div class="col-md-12">
+    <EditForm Model="@CarModel" OnValidSubmit="@FormSubmitted">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Edit</h5>
+            </div>
+            <div class="card-body">
+
+       
+                <input value="@CarModel.Id" type="hidden" />
+                <DataAnnotationsValidator />
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="Name">Name: </label>
+                        <InputText id="Name" class="form-control" @bind-Value="@CarModel.Name" placeholder="Enter name"></InputText>
+                        <ValidationMessage class="text-danger" For="@(() => CarModel.Name)" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="Price">Price: </label>
+                        <InputNumber id="Price" class="form-control" @bind-Value="@CarModel.Price" placeholder="Enter Price"></InputNumber>
+                        <ValidationMessage class="text-danger" For="@(() => CarModel.Price)" />
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="Year">Year: </label>
+                        <InputNumber id="Year" class="form-control" @bind-Value="@CarModel.Year" placeholder="Enter Year"></InputNumber>
+                        <ValidationMessage class="text-danger" For="@(() => CarModel.Year)" />
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" id="btnsubmit" class="btn btn-success">Submit</button>
+                <a class="btn btn-danger" href="">Clear</a>
+                <a class="btn btn-primary" href="/CarPage">List</a>
+            </div>
+        </div>
+    </EditForm>
+</div>

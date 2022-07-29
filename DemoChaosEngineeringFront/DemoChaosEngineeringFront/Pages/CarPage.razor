@@ -1,0 +1,50 @@
+﻿@page "/CarPage"
+
+@inherits CarPageComponenteBase
+<div class="col-md-12">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Cars</h5>
+        </div>
+        <div class="card-body">
+
+            <div class="form-row" style="display: flex; margin-bottom: 10px;">
+                <div class="form-group col-md-4" style="margin-right: 10px;">
+                    <input @bind-value="Search"
+                           class="form-control" type="text" placeholder="Filter...">
+
+                </div>
+                <div class="form-group col-md-4">
+                    <button class="btn btn-success" @onclick="SearchClickAsync">Search</button>
+                    <button class="btn btn-danger" @onclick="ClearClickAsync">Clear</button>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var car in Cars)
+                        {
+                            <tr @key="car.Id">
+                                <td>@car.Id</td>
+                                <td>@car.Name</td>
+                                <td>@car.Price</td>
+                                <td>@car.Year</td>
+                                <td><a class="btn btn-warning" href="/EditCar/@car.Id">Edit</a></td>
+                                <td><button type="button" class="btn btn-danger" @onclick="@(e => DeleteAsync(car.Id))">Delete</button></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
