@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "DemoChaosEngineeringProduct": {
+    "DemoChaosEngineeringCar": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
