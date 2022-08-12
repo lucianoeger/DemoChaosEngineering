@@ -17,6 +17,12 @@ spec:
       containers:
       - name: chaos-api
         image: containerregisterluciano.azurecr.io/chaos-api:latest
+        env:
+        - name: ConnectionStrings__WebApiDatabase
+          valueFrom:
+                secretKeyRef:
+                  name: secret-sqlserver
+                  key: SQL_SERVER_CONNECTION_STRING
         resources:
           requests:
             cpu: 100m
