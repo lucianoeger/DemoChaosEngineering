@@ -18,8 +18,15 @@ spec:
       - name: chaos-front
         image: containerregisterluciano.azurecr.io/chaos-front:latest
         env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Development
         - name: ApiUrl
           value: "http://chaos-api"
+        - name: APPLICATIONINSIGHTS_CONNECTION_STRING
+          valueFrom:
+                secretKeyRef:
+                  name: secret-appinsights
+                  key: APPLICATIONINSIGHTS_CONNECTION_STRING
         resources:
           requests:
             cpu: 100m
