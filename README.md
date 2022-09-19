@@ -10,6 +10,8 @@ Objetivo é demonstrar alguns cenários de aplicação da engenharia do caos, ut
  - Banco de dados: SQL Server
  - Monitoramento: Application Insights
  - Ferramenta Chaos Engineering: Chaos Mesh
+ - Infra: Azure kubernetes
+ 
  
  ### Instalação do Chaos Mesh no cluster kubernetes (https://chaos-mesh.org/docs/quick-start/):
  
